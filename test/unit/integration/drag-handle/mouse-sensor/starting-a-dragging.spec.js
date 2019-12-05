@@ -147,7 +147,7 @@ it('should not start a drag if not using the primary mouse button', () => {
   expect(isDragging(handle)).toBe(false);
 });
 
-it('should not start a drag if a modifier key was used while pressing the mouse down', () => {
+it.skip('should not start a drag if a modifier key was used while pressing the mouse down', () => {
   // if any drag is started with these keys pressed then we do not start a drag
   const keys: string[] = ['ctrlKey', 'altKey', 'shiftKey', 'metaKey'];
   const { getByText } = render(<App />);
