@@ -9211,6 +9211,12 @@
     }, {
       eventName: 'keydown',
       fn: function fn(event) {
+        var isUsingWindows = navigator.platform.indexOf('Win') >= 0;
+
+        if (isUsingWindows && event.ctrlKey && event.charCode === 0 && !event.altKey && !event.shiftKey) {
+          return;
+        }
+
         var phase = getPhase();
 
         if (phase.type === 'PENDING') {
