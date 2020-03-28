@@ -143,6 +143,12 @@ function getCaptureBindings({
     {
       eventName: 'keydown',
       fn: (event: KeyboardEvent) => {
+        // Don't abort dragging if it's only Control key
+        const isUsingWindows = navigator.platform.indexOf('Win') >= 0;
+        if (isUsingWindows && event.ctrlKey && event.charCode === 0 && !event.altKey && !event.shiftKey) {
+          return;
+        }
+
         const phase: Phase = getPhase();
         // Abort if any keystrokes while a drag is pending
         if (phase.type === 'PENDING') {

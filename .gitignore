@@ -8,8 +8,9 @@ node_modules/
 # MacOS
 .DS_Store
 
+# allow dist files in a build branch
 # generated files
-dist/
+# dist/
 
 # generated site
 site/
