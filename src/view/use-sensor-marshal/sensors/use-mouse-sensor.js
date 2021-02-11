@@ -223,10 +223,12 @@ export default function useMouseSensor(api: SensorAPI) {
           return;
         }
 
-        // Do not start a drag if any modifier key is pressed
-        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
-          return;
-        }
+        // Allow a drag if any modifier key is pressed
+        //
+        // // Do not start a drag if any modifier key is pressed
+        // if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+        //   return;
+        // }
 
         const draggableId: ?DraggableId = api.findClosestDraggableId(event);
 
